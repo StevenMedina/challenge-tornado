@@ -1,0 +1,22 @@
+1. Describe how you would architect/design the application. What modules/componentswould you create? How would the information flow between components?.
+
+Se usara una arquitectura de N capas, teniendo en cuenta que el framework a utilizar (Tornado) no maneja una estructura especifica de arquitectura, esta se da a eleccion del programador, por dicha razon se distribuira una capa para datos (Conexion a DB, mini ORM custom), una capa para vista (la cual dara el response segun la ruta de url y el tipo de peticion (GET, POST, PUT, PATCH, DELETE)), una capa adicional donde se procesara toda la logica del negocio teniendo en cuenta un patron custom denominado use case (Clase especifica para distribuir los pasos de la logica del negocio, todo distribuido desde un metodo llamado execute), una capa adicional (Template) para mostrar la respuesta al cliente, esto se desarrollara con VueJS y estara dentro de la aplicacion, se opto por utilizar todo centralizado (Monolito) y no con microservicio ya que el tiempo de desarrollo para el cliente y la aplicacion server se aumenta exponencialmente, esto sucede de igual manera para una REST API y un cliente.
+
+La estructura a realizar se tomara desde un paquete principal llamado app a su nivel un archivo main.py para inicializar el proyecto el cual a su vez esta relacionado a runner.py dentro de la carpeta app, alli se contendran los modulos config un archivo settings.py con toda la configuracion del proyecto (Constantes), database (archivo orm.py, sqlite.py), views, usecase, routes, y un archivo lanzador llamado runner.py, este lanzador llamara a cada una de los modulos para secuencialmente para dar respuesta segun la peticion dentro de la aplicacion.
+
+Un modulo client donde se mantendra la respuesta al cliente en conexion con la aplicacion.
+Se realizara con HTML y VueJS.
+
+2. How would you design the database and its tables?
+
+Se agregara un modulo llamado documentation donde estara un proyecto en star uml e imagenes con el modelo entidad relacion.
+
+3. Imagine you need to scale the platform to increase 100x the current users: Whichscalability techniques would you use?
+
+Inicialmente construir una base solida usando patrones de diseno (UseCase) y POO aplicada para mantener la legiblidad del codigo y facilidad de mantenibilidad, la creacion de la estrutura en modulos facilimente extendibles, creacion de pruebas unitarias con una cobertura mayor a x % para lograr confiabilidad en la precision de los objetivos de cada actor, en cuanto a DB utilizar las mejores tecnicas en base de datos, manteniendo todo en memoria y almacenando datos con pocos commits a la DB al igual que transacciones por si falla algo, agregar excepciones personalizadas las cuales permitan dar un handle especifico en diferentes casos, uso de managers para reducir repeticiones de codigo, reducir el uso de loops anidados, enviar procesos de segundo plano...
+
+
+ 
+
+  
+
