@@ -4,21 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <title>{% block title %}Default title{% end %}</title>
+    <title>{% block title %}Challenge Tornado{% end %}</title>
   </head>
   {% include "header.html" %}
   <body>
     <section class="section">
         <div class="container">
             <h1 class="title">
-                Hello World
+                Loan Application
             </h1>
             {% include "../forms/main_form.html" %}
         </div>
     </section>
+
+    <notifications group="loan-result" />
   </body>
   {% include "footer.html" %}
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="text/javascript"  src="{{ static_url('js/main.js') }}"></script>
 </html>

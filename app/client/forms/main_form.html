@@ -1,8 +1,6 @@
 <form
     id="app"
-    @submit="checkForm"
-    action="https://vuejs.org/"
-    method="post"
+    v-on:submit.prevent="checkForm"
 >
     <p v-if="errors.length">
         <b>Please correct the following error(s):</b>
@@ -12,43 +10,72 @@
     </p>
 
     <p>
-        <label for="name">Name</label>
+        <label for="tax_id">Tax Id</label>
         <input
-            id="name"
-            v-model="name"
-            type="text"
-            name="name"
-        >
-    </p>
-
-    <p>
-        <label for="age">Age</label>
-        <input
-            id="age"
-            v-model="age"
+            id="tax_id"
+            v-model="tax_id"
             type="number"
-            name="age"
             min="0"
+            name="tax_id"
         >
     </p>
 
     <p>
-        <label for="movie">Favorite Movie</label>
-        <select
-            id="movie"
-            v-model="movie"
-            name="movie"
+        <label for="business_name">Business Name</label>
+        <input
+            id="business_name"
+            v-model="business_name"
+            type="text"
+            name="business_name"
         >
-            <option>Star Wars</option>
-            <option>Vanilla Sky</option>
-            <option>Atomic Blonde</option>
-        </select>
     </p>
 
     <p>
-    <input
-        type="submit"
-        value="Submit"
-    >
+        <label for="requested_amount">Requested amount</label>
+        <input
+            id="requested_amount"
+            v-model="requested_amount"
+            type="number"
+            min="0"
+            name="requested_amount"
+        >
+    </p>
+
+    <p>
+        <label for="owner_social_security_number">Owner Social Security Number</label>
+        <input
+            id="owner_social_security_number"
+            v-model="owner_social_security_number"
+            type="number"
+            min="0"
+            name="owner_social_security_number"
+        >
+    </p>
+
+    <p>
+        <label for="owner_name">Owner Name</label>
+        <input
+            id="owner_name"
+            v-model="owner_name"
+            type="text"
+            name="owner_name"
+        >
+    </p>
+
+    <p>
+        <label for="owner_email">Owner Email</label>
+        <input
+            id="owner_email"
+            v-model="owner_email"
+            type="text"
+            name="owner_email"
+        >
+    </p>
+
+    <p>
+        <input
+            type="submit"
+            value="Submit"
+        >
     </p>
 </form>
