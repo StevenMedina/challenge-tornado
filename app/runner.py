@@ -1,3 +1,5 @@
+import os
+
 import tornado.ioloop
 import tornado.web
 
@@ -18,7 +20,7 @@ class FactoryMainHandlerProcess:
     def _initial_app(self):
         return tornado.web.Application([
             (r"/", MainHandler),
-        ])
+        ], static_path=os.path.join(os.path.dirname(__file__), 'static'))
 
     def _listen_app(self):
         app = self._initial_app()
