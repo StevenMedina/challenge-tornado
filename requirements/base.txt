@@ -1,0 +1,5 @@
+# Env
+python-dotenv==0.13.0
+
+# Pytest
+pytest==5.4.3
